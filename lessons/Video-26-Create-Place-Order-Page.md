@@ -166,7 +166,7 @@
                             <Col md={3}>
                               <span>{item.quantity}</span>
                             </Col>
-                            <Col md={3}>${item.price}</Col>
+                            <Col md={3}>Ksh {item.price}</Col>
                           </Row>
                         </ListGroup.Item>
                       ))}

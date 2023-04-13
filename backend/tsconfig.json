@@ -3,6 +3,7 @@
     "target": "es2015",
     "outDir": "./build",
     "strict": true,
+    "types": ["node", "@types/bcryptjs"],
     "module": "commonjs",
     "esModuleInterop": true,
     "experimentalDecorators": true,
