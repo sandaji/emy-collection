@@ -65,7 +65,7 @@ export default function ProductPage() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : Ksh {product.price}</ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
@@ -79,7 +79,7 @@ export default function ProductPage() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>${product.price}</Col>
+                    <Col>Ksh {product.price}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

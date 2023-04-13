@@ -6,6 +6,12 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+main{
+  height: 100vh;
+}
+footer{
+  height: 5rem;
+}
 
 .product-image {
   max-width: 400px;
@@ -13,7 +19,7 @@
 }
 
 .rating span {
-  color: #ffc000;
+  color: hsl(45, 100%, 50%);
 }
 
 img.large {
@@ -28,11 +34,11 @@ img.thumbnail {
 }
 
 .checkout-steps > div {
-  border-bottom: 0.2rem solid #a0a0a0;
-  color: #a0a0a0;
+  border-bottom: 0.2rem solid hsl(0, 0%, 63%);
+  color: hsl(0, 0%, 63%);
 }
 .checkout-steps > div.active {
-  border-bottom: 0.2rem solid #f08000;
+  border-bottom: 0.2rem solid hsl(32, 100%, 47%);
   color: #f08000;
 }
 

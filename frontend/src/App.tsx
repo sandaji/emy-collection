@@ -50,7 +50,7 @@ function App() {
         >
           <div className="d-flex justify-content-between align-items-center">
             <LinkContainer to="/" className="header-link">
-              <Navbar.Brand>amazona</Navbar.Brand>
+              <Navbar.Brand>Emy Collection</Navbar.Brand>
             </LinkContainer>
             <Form className="flex-grow-1 d-flex me-auto">
               <InputGroup>
@@ -58,8 +58,8 @@ function App() {
                   type="text"
                   name="q"
                   id="q"
-                  placeholder="Search Amazona"
-                  aria-label="Search Amazona"
+                  placeholder="Search Emy Collection"
+                  aria-label="Search Emy Collection"
                   aria-describedby="button-search"
                 ></FormControl>
                 <Button
@@ -123,7 +123,7 @@ function App() {
                     </span>
                   }
                   <svg
-                    fill="#ffffff"
+                    fill="#961234"
                     viewBox="130 150 200 300"
                     width="40px"
                     height="40px"
@@ -158,8 +158,8 @@ function App() {
           <Outlet />
         </Container>
       </main>
-      <footer>
-        <div className="text-center">All rights reserved</div>
+      <footer className='bg-dark'>
+        <div className="text-center text-white">All rights reserved</div>
       </footer>
     </div>
   )
