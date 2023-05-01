@@ -1,3 +1,5 @@
+import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa"
+
 function Rating(props: {
   rating: number
   numReviews?: number
@@ -7,69 +9,59 @@ function Rating(props: {
   return (
     <div className="rating">
       <span>
-        <i
-          className={
-            rating >= 1
-              ? 'fas fa-star'
-              : rating >= 0.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
-          }
-        />
+        {rating >= 1 ? (
+          <FaStar />
+        ) : rating >= 0.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
       </span>
       <span>
-        <i
-          className={
-            rating >= 2
-              ? 'fas fa-star'
-              : rating >= 1.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
-          }
-        />
+        {rating >= 2 ? (
+          <FaStar />
+        ) : rating >= 1.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
       </span>
       <span>
-        <i
-          className={
-            rating >= 3
-              ? 'fas fa-star'
-              : rating >= 2.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
-          }
-        />
+        {rating >= 3 ? (
+          <FaStar />
+        ) : rating >= 2.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
       </span>
       <span>
-        <i
-          className={
-            rating >= 4
-              ? 'fas fa-star'
-              : rating >= 3.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
-          }
-        />
+        {rating >= 4 ? (
+          <FaStar />
+        ) : rating >= 3.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
       </span>
       <span>
-        <i
-          className={
-            rating >= 5
-              ? 'fas fa-star'
-              : rating >= 4.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
-          }
-        />
+        {rating >= 5 ? (
+          <FaStar />
+        ) : rating >= 4.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
       </span>
       {caption ? (
         <span>{caption}</span>
       ) : numReviews != 0 ? (
-        <span>{' ' + numReviews + ' reviews'}</span>
+        <span>{" " + numReviews + " reviews"}</span>
       ) : (
-        ''
+        ""
       )}
     </div>
-  )
+  );
 }
 
 export default Rating

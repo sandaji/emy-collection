@@ -8,7 +8,7 @@ import { Product } from "../types/Product";
 import { convertProductToCartItem } from "../utils";
 import Rating from "./Rating";
 
-function ProductItem({ product }: { product: Product }) {
+function TrendingItems({ product }: { product: Product }) {
   const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -33,12 +33,11 @@ function ProductItem({ product }: { product: Product }) {
       {" "}
       {/* Add custom class */}
       <Link to={`/product/${product.slug}`}>
-        <Card.Img variant="top" src={product.image} alt={product.name} />
+              <Card.Img variant="top" src={product.image} alt={product.name}/>
       </Link>
       <Card.Body>
         <Link className="text-decoration-none" to={`/product/${product.slug}`}>
-          <Card.Title className="product-name">{product.name}</Card.Title>{" "}
-          {/* Add custom class */}
+          <Card.Title>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
         <Card.Text className="product-price">
@@ -61,4 +60,4 @@ function ProductItem({ product }: { product: Product }) {
   );
 }
 
-export default ProductItem;
+export default TrendingItems;

@@ -38,7 +38,8 @@ app.get("*", (req: Request, res: Response) =>
 );
 
 const PORT: number = parseInt(process.env.PORT || "5000", 10);
+const env = process.env.NODE_ENV || 'development';
 
 app.listen(PORT, () => {
-  console.log(`server started at http://localhost:${PORT}`);
+  console.log(`SERVER RUNNING IN ${env} at http://localhost:${PORT}`);
 });

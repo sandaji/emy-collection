@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
 import './index.css'
 import HomePage from './pages/HomePage'
@@ -25,6 +25,8 @@ import PlaceOrderPage from './pages/PlaceOrderPage'
 import OrderPage from './pages/OrderPage'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import OrderHistoryPage from './pages/OrderHistoryPage'
+import AdminDashboard from './pages/AdminDashboard'
+import AddProduct from './admin/screen/AddProducts'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,9 +42,10 @@ const router = createBrowserRouter(
         <Route path="placeorder" element={<PlaceOrderPage />} />
         <Route path="/order/:id" element={<OrderPage />} />
         <Route path="/orderhistory" element={<OrderHistoryPage />} />
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/addproduct" element={<AddProduct />} />
       </Route>
 
-      {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
     </Route>
   )
