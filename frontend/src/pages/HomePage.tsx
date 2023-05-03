@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, } from "react-bootstrap";
+import { Col, Container, Row, } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -19,12 +19,13 @@ export default function HomePage() {
   ) : error ? (
     <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
   ) : (
-    <>
+    <Container fluid>
       <Helmet>
         <title>Emy Collections</title>
       </Helmet>
-<BannerCarousel />
-
+     
+        <BannerCarousel />
+      
       <Row>
         <h3>Top Products</h3>
         {products!.map((product) => (
@@ -41,6 +42,6 @@ export default function HomePage() {
           </Col>
         ))}
       </Row>
-    </>
+    </Container>
   );
 }

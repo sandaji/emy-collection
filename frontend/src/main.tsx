@@ -26,7 +26,16 @@ import OrderPage from './pages/OrderPage'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import OrderHistoryPage from './pages/OrderHistoryPage'
 import AdminDashboard from './pages/AdminDashboard'
-import AddProduct from './admin/screen/AddProducts'
+// import Team from './Dashboard/scenes/Team'
+// import Contacts from './Dashboard/scenes/Contacts'
+// import Invoices from './Dashboard/scenes/Invoices'
+// import Form from './Dashboard/scenes/Form'
+// import Bar from './Dashboard/scenes/Bar'
+// import Pie from './Dashboard/scenes/Pie'
+// import Line from './Dashboard/scenes/Line'
+// import FAQ from './Dashboard/scenes/Faq'
+// import Calendar from './Dashboard/scenes/calendar'
+// import Geography from './Dashboard/scenes/Geography'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,14 +51,25 @@ const router = createBrowserRouter(
         <Route path="placeorder" element={<PlaceOrderPage />} />
         <Route path="/order/:id" element={<OrderPage />} />
         <Route path="/orderhistory" element={<OrderHistoryPage />} />
-      <Route path="/admin" element={<AdminDashboard />} />
-      <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/dashboard" element={<AdminDashboard />} />
+        {/* <Route path="/team" element={<Team />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/invoices" element={<Invoices />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/bar" element={<Bar />} />
+        <Route path="/pie" element={<Pie />} />
+        <Route path="/line" element={<Line />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/calendar" element={<Calendar />} />
+
+        <Route path="/geography" element={<Geography />} /> */}
       </Route>
 
       {/* ... etc. */}
     </Route>
   )
-)
+);
 
 const queryClient = new QueryClient()
 
