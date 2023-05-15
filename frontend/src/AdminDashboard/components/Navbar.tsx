@@ -6,18 +6,21 @@ import {
   FaFonticonsFi,
   FaLanguage,
   FaList,
+  FaMarsDouble,
   FaMoon,
   FaSearch,
 } from "react-icons/fa";
 import "../style/navbar.scss";
+import { Image, Navbar } from "react-bootstrap";
+import avator from "/images/p1.jpg"
 
-interface NavbarProps {}
+interface AdminNavbarProps {}
 
-const Navbar: React.FC<NavbarProps> = () => {
+const AdminNavbar: React.FC<AdminNavbarProps> = () => {
   const { dispatch } = useContext(DarkModeContext);
 
   return (
-    <div className="navbar">
+    <Navbar className="navbar">
       <div className="wrapper">
         <div className="search">
           <input type="text" placeholder="Search..." />
@@ -35,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             />
           </div>
           <div className="item">
-            <FaCross className="icon" />
+        <FaMarsDouble className="icon" />
           </div>
           <div className="item">
             <FaFonticonsFi className="icon" />
@@ -49,16 +52,16 @@ const Navbar: React.FC<NavbarProps> = () => {
             <FaList className="icon" />
           </div>
           <div className="item">
-            <img
-              src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            <Image
+              src={avator}
               alt=""
               className="avatar"
             />
           </div>
         </div>
       </div>
-    </div>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default AdminNavbar;

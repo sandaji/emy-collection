@@ -1,4 +1,3 @@
-import AdminDashboard from "./AdminDashboard";
 import CartPage from "./CartPage";
 import HomePage from "./HomePage";
 import OrderHistoryPage from "./OrderHistoryPage";
@@ -11,7 +10,6 @@ import SignupPage from "./SignupPage";
 import PlaceOrderPage from "./PlaceOrderPage";
 
 export {
-  AdminDashboard,
   CartPage,
   HomePage,
   OrderHistoryPage,

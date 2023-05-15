@@ -1,8 +1,8 @@
-import "../style/datatable.scss";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { DataGrid, GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../datatablesource";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import "../style/datatable.scss";
 
 interface User {
   id: number;

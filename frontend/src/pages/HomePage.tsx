@@ -9,6 +9,7 @@ import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 import TrendingItems from "../components/Trending";
 import BannerCarousel from "../components/BannerCarousel";
+import ProductListing from "../components/ProductListing";
 
 export default function HomePage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
@@ -41,7 +42,10 @@ export default function HomePage() {
             <TrendingItems product={product} />
           </Col>
         ))}
-      </Row>
+          </Row>
+          <Row>
+            <ProductListing />
+          </Row>
     </Container>
   );
 }

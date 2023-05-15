@@ -1,12 +1,9 @@
 import { useLocation } from "react-router-dom";
 
-import { Sidebar,
-  Navbar,
-  Widget,
-  Featured,
-  Chart,Table, } from "../components";
-  import "../style/home.scss";
+import { Sidebar, Navbar, Widget, Featured, Chart, Table } from "../components";
+import "../style/home.scss";
 import { Header } from "../../components";
+import AdminNavbar from "../components/Navbar";
 
 const AdminHome = () => {
   const location = useLocation();
@@ -15,12 +12,8 @@ const AdminHome = () => {
     <div className="home">
       <Sidebar />
       <div className="homeContainer">
-  
-  if (location.pathname === "/admin") {
-    <Navbar />
-  } else {
-     <Header />
-  }
+        {/* {location.pathname === "/" ? <Header /> : <AdminNavbar />} */}
+
         <div className="widgets">
           <Widget type="user" />
           <Widget type="order" />

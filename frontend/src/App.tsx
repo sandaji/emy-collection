@@ -21,7 +21,7 @@ import {
   OrderHistoryPage,
 } from "./pages";
 import AdminHome from "./AdminDashboard/pages/Home";
-import Navbar from "./AdminDashboard/components/Navbar";
+import AdminNavbar from "./AdminDashboard/components/Navbar";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,21 +44,15 @@ export const router = createBrowserRouter(
     </Route>
   )
 );
-const location = useLocation();
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <ToastContainer position="bottom-center" limit={1} />
       <header>
-          
-  
-  if (location.pathname === "/admin") {
-     <Navbar />
-  } else {
-     <Header />
-  }
-        
+        {location.pathname === "/" ? <Header /> : <AdminNavbar />}
       </header>
       <main className="flex-fill">
         <Container className="mt-3">

@@ -18,10 +18,10 @@ import "../style/sidebar.scss";
 const Sidebar: React.FC = () => {
   const { dispatch } = useContext(DarkModeContext);
   return (
-    <div className="sidebar">
+    <div className="sidebar w-full">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">lamadmin</span>
+          <span className="logo">Emy Collection</span>
         </Link>
       </div>
       <hr />

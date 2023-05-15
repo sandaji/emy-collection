@@ -39,59 +39,24 @@ export default function BannerCarousel() {
   ) : (
     <>
       {products && (
-        <Row
-          style={{
-            width: "99.2vw",
-            background: "#232f3f",
-            height: "80vh",
-            marginBottom: "1rem",
-            marginTop: "-3rem",
-            marginLeft: "-10rem",
-          }}
-        >
-          <Carousel
-            activeIndex={index}
-            onSelect={handleSelect}
-            interval={interval}
-            fade
-          >
-            {products.map((product) => (
-              <Carousel.Item key={product.slug}>
-                <Col md={5}>
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    className="d-block w-100 mt-5"
-                    style={{
-                      height: "70vh",
-                      objectFit: "contain",
-                    }}
-                  />
-                </Col>
-                <Col
-                  md={5}
-                  className="d-flex align-items-start justify-content-start me-auto"
-                >
-                  <Carousel.Caption>
-                    <h1 className="text-info"> BIG SALE</h1>
-                    <Rating
-                      rating={product.rating}
-                      numReviews={product.numReviews}
-                    />
-
-                    <h3 className="text-muted">
-                      GET 50% OFF WHEN YOU ORDER THIS CLASSIFIED ITEMS
-                    </h3>
-                    <div className="gap-5 ">
-                      <Button className="btn-main mx-5">view</Button>
-                      <Button className="btn-main mx-5">shop</Button>
-                    </div>
-                  </Carousel.Caption>
-                </Col>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        </Row>
+        <Carousel>
+          {" "}
+          {products.map((product) => (
+            <Carousel.Item key={product.slug}>
+              <img
+                className="d-block w-100"
+                src={product.image}
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
       )}
     </>
   );

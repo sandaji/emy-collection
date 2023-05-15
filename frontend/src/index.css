@@ -1,11 +1,11 @@
-/* :root {
+ :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-} */
+} 
 
 .product-image {
   max-width: 400px;
@@ -89,7 +89,10 @@ a.header-link:hover,
 .sub-header {
   background-color: #232f3e;
   height:3rem;
+  /* margin-top: 1rem; */
   border-bottom: 1px solid indigo;
+  width: 99.5vw;
+  margin-left: -1rem;
 }
 
 .cart-badge {
@@ -118,4 +121,4 @@ a.header-link:hover,
 .smal-container{
   background-color: #1b181d;
 }
-
+ 
