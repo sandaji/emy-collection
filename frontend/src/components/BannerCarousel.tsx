@@ -8,8 +8,8 @@ import image3 from "../assets/images/p3.jpg";
 const BannerCarousel = () => {
   return (
     <Container fluid className="header">
-      <Row className="header__container">
-        <Col xs={12} md={6} className="header__image">
+      <Row className="header__container gap-5">
+        <Col xs={12} md={6} className="position-relative">
           <img src={image1} alt="header" />
           <img src={image2} alt="header" />
         </Col>
