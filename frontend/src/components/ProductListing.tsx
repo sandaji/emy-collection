@@ -1,61 +1,76 @@
-import React from "react";
-import { Grid, Paper, ButtonBase } from "@mui/material";
-import { AttachMoney } from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
+import { Card, Row, Col } from "react-bootstrap";
 import LoadingBox from "./LoadingBox";
 import MessageBox from "./MessageBox";
-import { useGetProductsQuery } from "../hooks/productHooks";
+import { useGetCategoryImages } from "../hooks/productHooks";
 import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
 import { Link } from "react-router-dom";
 
-interface Product {
+interface Category {
+  name: string;
   image: string;
-  price: number;
-  slug: string;
 }
 
 const ProductListing: React.FC = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<ApiError | null>(null);
 
-  return isLoading ? (
-    <LoadingBox />
-  ) : error ? (
-    <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
-  ) : (
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data: categoryImages } = await useGetCategoryImages();
+        setCategories(categoryImages || []);
+        setIsLoading(false);
+      } catch (error: unknown) {
+        setError(error as ApiError);
+        setIsLoading(false);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  if (isLoading) {
+    return <LoadingBox />;
+  }
+
+  if (error) {
+    return <MessageBox variant="danger">{getError(error)}</MessageBox>;
+  }
+
+  return (
     <div className="my-5 text-center">
       <h4 className="mt-4 mb-5">
-        <strong>Product Listing</strong>
+        <strong>Categories</strong>
       </h4>
 
-      <Grid container spacing={2}>
-        {products?.map((product: Product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={product.slug}>
-            <Link to={`/product/${product.slug}`}>
-              <ButtonBase
-                focusRipple
-                component={Paper}
-                elevation={3}
-                className="product-card"
-                style={{ width: "100%" }}
-              >
-                <img
-                  src={product.image}
-                  alt="Product"
+      <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+        {categories.map((category: Category) => (
+          <Col key={category.name}>
+            <Link to={`/category/${category.name}`}>
+              <Card className="h-100">
+                <Card.Img
+                  variant="top"
+                  src={category.image}
+                  alt={category.name}
                   className="product-image"
-                  style={{ width: "100%" }}
                 />
-                <div className="product-overlay">
-                  <h5>
-                    <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
-                      <AttachMoney /> {product.price?.toLocaleString("en")}
-                    </span>
-                  </h5>
-                </div>
-              </ButtonBase>
+                <Card.Body>
+                  <div className="product-overlay">
+                    <h5>
+                      <span className="badge bg-light pt-2 ms-3 mt-3 text-dark">
+                        {category.name}
+                      </span>
+                    </h5>
+                  </div>
+                </Card.Body>
+              </Card>
             </Link>
-          </Grid>
+          </Col>
         ))}
-      </Grid>
+      </Row>
     </div>
   );
 };

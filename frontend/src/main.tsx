@@ -9,6 +9,7 @@ import { StoreProvider } from "./Store";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./colorPallet.css";
 import "./index.css";
 
 const queryClient = new QueryClient();

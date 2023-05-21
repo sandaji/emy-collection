@@ -52,7 +52,7 @@ function App() {
     <div className="d-flex flex-column min-vh-100">
       <ToastContainer position="bottom-center" limit={1} />
       <header>
-        {location.pathname === "/" ? <Header /> : <AdminNavbar />}
+        {location.pathname === "/admin" ? <AdminNavbar /> : <Header />}
       </header>
       <main className="flex-fill">
         <Container className="mt-3">

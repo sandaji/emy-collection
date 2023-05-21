@@ -47,8 +47,8 @@ export default function ProductPage() {
     <MessageBox variant="danger">Product Not Found</MessageBox>
   ) : (
     <div>
-      <Row>
-        <Col md={6}>
+      <Row className="mt-5">
+        <Col md={6} >
           <img className="large" src={product.image} alt={product.name}></img>
         </Col>
         <Col md={3}>

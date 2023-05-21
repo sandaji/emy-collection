@@ -1,4 +1,4 @@
- :root {
+:root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,13 +13,21 @@
   --text-light: #767268;
   --extra-light: #ffffff;
   --max-width: 1200px;
+
 }
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+  margin-top: -5rem;
+}
+
 .header {
   background-color: var(--secondary-color);
 }
 
 .header__container {
-  min-height: 100vh;
+  min-height: 90vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
@@ -95,7 +103,7 @@
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 30px #0000001a;
 }
 
 .video__image span {
@@ -111,19 +119,36 @@
   color: red;
   background-color: var(--extra-light);
   border-radius: 100%;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 30px #0000001a;
 }
 
-.story > span {
-  font-size: 1rem;
+.section__title {
+  font-size: 2rem;
   font-weight: 600;
   color: var(--text-dark);
+  margin-bottom: 1rem;
 }
 
+.section__subtitle {
+  font-size: 1rem;
+  color: var(--text-dark);
+  max-width: calc(var(--max-width) / 2);
+}
 
-.product-image {
-  max-width: 400px;
-  width: 100%;
+.btn {
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--extra-light);
+  background-color: var(--primary-color);
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
 }
 
 .rating span {
@@ -159,7 +184,7 @@ img.thumbnail {
   background-color: #f0c040;
   color: #000000;
 }
-.btn-main{
+.btn-main {
   background: indigo;
   color: azure;
   outline: none;
@@ -167,7 +192,7 @@ img.thumbnail {
   width: 7.5rem;
   text-transform: uppercase;
 }
-.btn-main:hover{
+.btn-main:hover {
   background: rgb(123, 228, 228);
   color: rgb(79, 21, 146);
 }
@@ -202,7 +227,7 @@ a.header-link:hover,
 }
 .sub-header {
   background-color: #232f3e;
-  height:3rem;
+  height: 3rem;
   /* margin-top: 1rem; */
   border-bottom: 1px solid indigo;
   width: 99.5vw;
@@ -232,7 +257,6 @@ a.header-link:hover,
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
-.smal-container{
+.smal-container {
   background-color: #1b181d;
 }
- 
