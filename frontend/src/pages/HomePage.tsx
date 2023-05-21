@@ -1,19 +1,20 @@
 import React from "react";
-import { Col, Container, Row, } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import ProductItem from "../components/ProductItem";
 import { useGetProductsQuery } from "../hooks/productHooks";
 import { ApiError } from "../types/ApiError";
 import { getError } from "../utils";
-import TrendingItems from "../components/Trending";
-import BannerCarousel from "../components/BannerCarousel";
-import ProductListing from "../components/ProductListing";
+import {
+  BannerCarousel,
+  LoadingBox,
+  MessageBox,
+  ProductItem,
+  ProductListing,
+  TrendingItems,
+} from "../components";
 
 export default function HomePage() {
   const { data: products, isLoading, error } = useGetProductsQuery();
-
 
   return isLoading ? (
     <LoadingBox />
@@ -24,9 +25,9 @@ export default function HomePage() {
       <Helmet>
         <title>Emy Collections</title>
       </Helmet>
-     
-        <BannerCarousel />
-      
+
+      <BannerCarousel />
+
       <Row>
         <h3>Top Products</h3>
         {products!.map((product) => (
@@ -42,10 +43,8 @@ export default function HomePage() {
             <TrendingItems product={product} />
           </Col>
         ))}
-          </Row>
-          <Row>
-            <ProductListing />
-          </Row>
+      </Row>
+      <ProductListing />
     </Container>
   );
 }

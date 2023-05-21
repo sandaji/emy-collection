@@ -1,63 +1,51 @@
 import React from "react";
-import {
-  Col,
-  Row,
-  Carousel,
-  Image,
-  ButtonGroup,
-  Button,
-} from "react-bootstrap";
-import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
-import { useGetProductsQuery } from "../hooks/productHooks";
-import { ApiError } from "../types/ApiError";
-import { getError } from "../utils";
-import Rating from "./Rating";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { RiPlayFill } from "react-icons/ri";
+import image1 from "../assets/images/p1.jpg";
+import image2 from "../assets/images/p2.jpg";
+import image3 from "../assets/images/p3.jpg";
 
-export default function BannerCarousel() {
-  const { data: products, isLoading, error } = useGetProductsQuery();
-  const [index, setIndex] = React.useState<number>(0);
-  const interval: number = 5000;
-
-  const handleSelect = (selectedIndex: number, e: any) => {
-    setIndex(selectedIndex);
-  };
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prevIndex) =>
-        prevIndex === products!.length - 1 ? 0 : prevIndex + 1
-      );
-    }, interval);
-    return () => clearInterval(timer);
-  }, [interval, products]);
-
-  return isLoading ? (
-    <LoadingBox />
-  ) : error ? (
-    <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
-  ) : (
-    <>
-      {products && (
-        <Carousel>
-          {" "}
-          {products.map((product) => (
-            <Carousel.Item key={product.slug}>
-              <img
-                className="d-block w-100"
-                src={product.image}
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      )}
-    </>
+const BannerCarousel = () => {
+  return (
+    <Container fluid className="header">
+      <Row className="header__container">
+        <Col xs={12} md={6} className="header__image">
+          <img src={image1} alt="header" />
+          <img src={image2} alt="header" />
+        </Col>
+        <Col xs={12} md={6} className="header__content">
+          <div>
+            <p className="sub__header">Book Now</p>
+            <h1>
+              The Smiling{" "}
+              <span role="img" aria-label="Smiling Face">
+                😊
+              </span>
+              <br />
+              agent for travel
+            </h1>
+            <p className="section__subtitle">
+              Make your travel more enjoyable with us. We are the best travel
+              agency and we are providing the best travel services for our
+              clients.
+            </p>
+            <div className="action__btns">
+              <Button className="btn">Plan a Trip</Button>
+              <div className="story">
+                <div className="video__image">
+                  <img src={image3} alt="story" />
+                  <span>
+                    <RiPlayFill />
+                  </span>
+                </div>
+                <span>Watch our story</span>
+              </div>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
-}
+};
+
+export default BannerCarousel;

@@ -8,6 +8,7 @@ import ProductItem from "./ProductItem";
 import ProtectedRoute from "./ProtectedRoute";
 import Rating from "./Rating";
 import TrendingItems from "./Trending";
+import ProductListing from "./ProductListing"
 
 export {
   BannerCarousel,
@@ -16,7 +17,7 @@ export {
   Header,
   LoadingBox,
   MessageBox,
-  ProductItem,
+  ProductItem,ProductListing,
   ProtectedRoute,
   Rating,
   TrendingItems,
