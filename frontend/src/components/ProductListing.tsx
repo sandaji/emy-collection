@@ -13,31 +13,25 @@ interface Category {
 }
 
 const ProductListing: React.FC = () => {
+  const { data: categoryImages, isLoading, error } = useGetCategoryImages();
   const [categories, setCategories] = useState<Category[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<ApiError | null>(null);
+  const [apiError, setApiError] = useState<ApiError | null>(null);
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data: categoryImages } = await useGetCategoryImages();
-        setCategories(categoryImages || []);
-        setIsLoading(false);
-      } catch (error: unknown) {
-        setError(error as ApiError);
-        setIsLoading(false);
-      }
-    };
-
-    fetchCategories();
-  }, []);
+    if (categoryImages) {
+      setCategories(categoryImages);
+    }
+    if (error) {
+setApiError(error as unknown as ApiError);
+    }
+  }, [categoryImages, error]);
 
   if (isLoading) {
     return <LoadingBox />;
   }
 
-  if (error) {
-    return <MessageBox variant="danger">{getError(error)}</MessageBox>;
+  if (apiError) {
+    return <MessageBox variant="danger">{getError(apiError)}</MessageBox>;
   }
 
   return (
