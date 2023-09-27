@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import { useGetProductsQuery } from "../hooks/productHooks";
 import { ApiError } from "../types/ApiError";
-import { getError } from "../utils";
+import { getError } from "../../../client/src/utils";
 import {
   BannerCarousel,
   LoadingBox,
@@ -11,7 +11,7 @@ import {
   ProductItem,
   ProductListing,
   TrendingItems,
-} from "../components";
+} from "../../../client/src/components";
 
 export default function HomePage() {
   const { data: products, isLoading, error } = useGetProductsQuery();

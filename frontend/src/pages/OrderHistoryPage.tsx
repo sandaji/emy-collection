@@ -1,15 +1,15 @@
-import { Button } from 'react-bootstrap'
-import { Helmet } from 'react-helmet-async'
-import { useNavigate } from 'react-router-dom'
-import LoadingBox from '../components/LoadingBox'
-import MessageBox from '../components/MessageBox'
-import { useGetOrderHistoryQuery } from '../hooks/orderHooks'
-import { ApiError } from '../types/ApiError'
-import { getError } from '../utils'
+import { Button } from "react-bootstrap";
+import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
+import LoadingBox from "../../../client/src/components/LoadingBox";
+import MessageBox from "../../../client/src/components/MessageBox";
+import { useGetOrderHistoryQuery } from "../hooks/orderHooks";
+import { ApiError } from "../types/ApiError";
+import { getError } from "../../../client/src/utils";
 
 export default function OrderHistoryPage() {
-  const navigate = useNavigate()
-  const { data: orders, isLoading, error } = useGetOrderHistoryQuery()
+  const navigate = useNavigate();
+  const { data: orders, isLoading, error } = useGetOrderHistoryQuery();
 
   return (
     <div>
@@ -40,18 +40,18 @@ export default function OrderHistoryPage() {
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
+                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
                 <td>
                   {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)
-                    : 'No'}
+                    : "No"}
                 </td>
                 <td>
                   <Button
                     type="button"
                     variant="light"
                     onClick={() => {
-                      navigate(`/order/${order._id}`)
+                      navigate(`/order/${order._id}`);
                     }}
                   >
                     Details
@@ -63,5 +63,5 @@ export default function OrderHistoryPage() {
         </table>
       )}
     </div>
-  )
+  );
 }

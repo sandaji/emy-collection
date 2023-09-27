@@ -5,7 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { router } from "./App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { StoreProvider } from "./Store";
+import { StoreProvider } from "../../client/src/Store";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";

@@ -1,31 +1,31 @@
-import { useContext, useEffect } from 'react'
-import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap'
-import { Helmet } from 'react-helmet-async'
-import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import CheckoutSteps from '../components/CheckoutSteps'
-import LoadingBox from '../components/LoadingBox'
-import { useCreateOrderMutation } from '../hooks/orderHooks'
-import { Store } from '../Store'
-import { ApiError } from '../types/ApiError'
-import { getError } from '../utils'
+import { useContext, useEffect } from "react";
+import { Button, Card, Col, Image, ListGroup, Row } from "react-bootstrap";
+import { Helmet } from "react-helmet-async";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import CheckoutSteps from "../../../client/src/components/CheckoutSteps";
+import LoadingBox from "../../../client/src/components/LoadingBox";
+import { useCreateOrderMutation } from "../hooks/orderHooks";
+import { Store } from "../../../client/src/Store";
+import { ApiError } from "../types/ApiError";
+import { getError } from "../../../client/src/utils";
 
 export default function PlaceOrderPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const { state, dispatch } = useContext(Store)
-  const { cart, userInfo } = state
+  const { state, dispatch } = useContext(Store);
+  const { cart, userInfo } = state;
 
-  const round2 = (num: number) => Math.round(num * 100 + Number.EPSILON) / 100 // 123.2345 => 123.23
+  const round2 = (num: number) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
 
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
-  )
-  cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10)
-  cart.taxPrice = round2(0.16 * cart.itemsPrice)
-  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
+  );
+  cart.shippingPrice = cart.itemsPrice > 100 ? round2(0) : round2(10);
+  cart.taxPrice = round2(0.16 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
-  const { mutateAsync: createOrder, isLoading } = useCreateOrderMutation()
+  const { mutateAsync: createOrder, isLoading } = useCreateOrderMutation();
 
   const placeOrderHandler = async () => {
     try {
@@ -37,20 +37,20 @@ export default function PlaceOrderPage() {
         shippingPrice: cart.shippingPrice,
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
-      })
-      dispatch({ type: 'CART_CLEAR' })
-      localStorage.removeItem('cartItems')
-      navigate(`/order/${data.order._id}`)
+      });
+      dispatch({ type: "CART_CLEAR" });
+      localStorage.removeItem("cartItems");
+      navigate(`/order/${data.order._id}`);
     } catch (err) {
-      toast.error(getError(err as ApiError))
+      toast.error(getError(err as ApiError));
     }
-  }
+  };
 
   useEffect(() => {
     if (!cart.paymentMethod) {
-      navigate('/payment')
+      navigate("/payment");
     }
-  }, [cart, navigate])
+  }, [cart, navigate]);
 
   return (
     <div>
@@ -96,7 +96,7 @@ export default function PlaceOrderPage() {
                           src={item.image}
                           alt={item.name}
                           className="img-fluid rounded thumbnail"
-                        />{' '}
+                        />{" "}
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
@@ -162,5 +162,5 @@ export default function PlaceOrderPage() {
         </Col>
       </Row>
     </div>
-  )
+  );
 }

@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/sandaji/emy-collection/issues"
   },
-  "homepage": "https://github.com/sandaji/emy-collection#readme"
+  "homepage": "https://github.com/sandaji/emy-collection#readme",
+  "dependencies": {
+    "react-router-dom": "^6.16.0"
+  }
 }

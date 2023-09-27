@@ -7,7 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Header, Footer, ProtectedRoute } from "./components";
+import { Header, Footer, ProtectedRoute } from "../../client/src/components";
 import {
   HomePage,
   ProductPage,
@@ -19,7 +19,7 @@ import {
   OrderPage,
   PlaceOrderPage,
   OrderHistoryPage,
-} from "./pages";
+} from "../../client/src/pages";
 import AdminHome from "./AdminDashboard/pages/Home";
 import AdminNavbar from "./AdminDashboard/components/Navbar";
 
