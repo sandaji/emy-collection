@@ -7,7 +7,7 @@ import {
   
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Footer, ProtectedRoute } from "./components";
+import { Footer, Header, ProtectedRoute } from "./components";
 import {
   HomePage,
   ProductPage,
@@ -20,6 +20,7 @@ import {
   PlaceOrderPage,
   OrderHistoryPage,
 } from "./pages";
+import "./App.css"
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,7 +49,8 @@ function App() {
     <div className="d-flex flex-column min-vh-100">
       <ToastContainer position="bottom-center" limit={1} />
       <header>
-        {/* {location.pathname === "/admin" ? <AdminNavbar /> : <Header />} */}
+        {/* {location.pathname === "/admin" ? <AdminNavbar /> :  */}
+        <Header />
       </header>
       <main className="flex-fill">
         <Container className="mt-3">

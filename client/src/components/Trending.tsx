@@ -3,8 +3,8 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Store } from "../Store";
-import { CartItem } from "../../../frontend/src/types/Cart";
-import { Product } from "../../../frontend/src/types/Product";
+import { CartItem } from "../types/Cart";
+import { Product } from "../types/Product";
 import { convertProductToCartItem } from "../utils";
 import Rating from "./Rating";
 

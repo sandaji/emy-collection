@@ -32,9 +32,9 @@ app.use("/api/orders", orderRouter);
 app.use("/api/seed", seedRouter);
 app.use("/api/keys", keyRouter);
 
-app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../../client/dist")));
 app.get("*", (req: Request, res: Response) =>
-  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html"))
 );
 
 const PORT: number = parseInt(process.env.PORT || "5000", 10);

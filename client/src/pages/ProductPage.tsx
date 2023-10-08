@@ -8,7 +8,7 @@ import MessageBox from "../components/MessageBox";
 import Rating from "../components/Rating";
 import { useGetProductDetailsBySlugQuery } from "../hooks/productHooks";
 import { Store } from "../Store";
-import { ApiError } from "../../../frontend/src/types/ApiError";
+import { ApiError } from "../types/ApiError";
 import { convertProductToCartItem, getError } from "../utils";
 
 export default function ProductPage() {
@@ -48,10 +48,10 @@ export default function ProductPage() {
   ) : (
     <div>
       <Row className="mt-5">
-        <Col md={6}>
+        <Col >
           <img className="large" src={product.image} alt={product.name}></img>
         </Col>
-        <Col md={3}>
+        <Col >
           <ListGroup variant="flush">
             <ListGroup.Item>
               <Helmet>
@@ -72,7 +72,7 @@ export default function ProductPage() {
             </ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col md={3}>
+        <Col >
           <Card>
             <Card.Body>
               <ListGroup variant="flush">

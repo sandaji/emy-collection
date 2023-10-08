@@ -1,19 +1,8 @@
 import {
-  Badge,
-  Button,
-  Form,
-  FormControl,
-  InputGroup,
-  Nav,
   Navbar,
-  NavDropdown,
-  Row,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
-import { Store } from "../Store";
-import { useContext, useEffect } from "react";
-import { FaBars, FaSearch, FaUserMinus } from "react-icons/fa";
+import { FaBars} from "react-icons/fa";
 
 type Props = {};
 

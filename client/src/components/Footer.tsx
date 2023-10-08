@@ -14,7 +14,7 @@ const Footer = (props: Props) => {
       <div className="container py-5">
         <Row>
           <Col md={4}>
-            <h5>About Us</h5>
+            <h5 className="text-4xl text-red-500">About Us</h5>
             <p className="mt-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.

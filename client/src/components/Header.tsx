@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Store } from "../Store";
 import { useContext, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaMoon, FaSearch, FaSun } from "react-icons/fa";
 import SubHeader from "./SubHeader";
 
 type Props = {};
@@ -22,7 +22,6 @@ const Header = (props: Props) => {
     height: "5rem",
     width: "100%",
   };
-
   const {
     state: { mode, cart, userInfo },
     dispatch,
@@ -125,11 +124,13 @@ const Header = (props: Props) => {
               className="nav-link header-link"
               onClick={switchModeHandler}
             >
-              <i
-                className={
-                  mode === "light" ? "fa fa-sun mx-3" : "fa fa-moon mx-3"
-                }
-              ></i>
+              {
+                
+                  mode === "light" ? <FaSun /> : <FaMoon />
+              }
+               
+              
+             
             </Link>
             {userInfo && userInfo.isAdmin && (
               <Link to="/admin" className="nav-link header-link">

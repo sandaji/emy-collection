@@ -1,6 +1,18 @@
-import { star } from "../../../frontend/src/assets/icons";
+import { star } from "../assets/icons";
 
-const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
+interface ReviewCardProps {
+  imgURL: string;
+  customerName: string;
+  rating: number;
+  feedback: string;
+}
+
+const ReviewCard: React.FC<ReviewCardProps> = ({
+  imgURL,
+  customerName,
+  rating,
+  feedback,
+}) => {
   return (
     <div className="flex justify-center items-center flex-col">
       <img
